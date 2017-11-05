@@ -112,26 +112,38 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['nattype'])) {
             $natType = filter_var(testInput($_POST['nattype']), FILTER_SANITIZE_STRING);
-            $natTypes = array('kuwaiti', 'Not kuwaiti', 'كويتى', 'غير كويتى');
-            if (in_array($natType, $natTypes)) {
-                try {
-                    $query = "INSERT INTO nationalityTypes (type) VALUES (:type)";
-                    $stmt = Connection::conn()->prepare($query);
-                    $stmt->bindParam(':type', $natType, PDO::PARAM_STR);
-                    $stmt->execute();
-                } catch(PDOException $e) {
-                    dbError($stmt, 'nationality-types.php?manage=add&lang='.$selectedLang);
-                    die();
-                }
-                $_SESSION['success'] = language('natType-add-success', $_SESSION['lang']);
-                header('Location: nationality-types.php?manage=view&lang='.$selectedLang);
+            // $natTypes = array('kuwaiti', 'Not kuwaiti', 'كويتى', 'غير كويتى');
+            // if (in_array($natType, $natTypes)) {
+            //     try {
+            //         $query = "INSERT INTO nationalityTypes (type) VALUES (:type)";
+            //         $stmt = Connection::conn()->prepare($query);
+            //         $stmt->bindParam(':type', $natType, PDO::PARAM_STR);
+            //         $stmt->execute();
+            //     } catch(PDOException $e) {
+            //         dbError($stmt, 'nationality-types.php?manage=add&lang='.$selectedLang);
+            //         die();
+            //     }
+            //     $_SESSION['success'] = language('natType-add-success', $_SESSION['lang']);
+            //     header('Location: nationality-types.php?manage=view&lang='.$selectedLang);
+            //     die();
+            // }
+            // else {
+            //     $_SESSION['error'] = language('nationalityTypes-check-error', $_SESSION['lang']);
+            //     header('Location: nationality-types.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
+            try {
+                $query = "INSERT INTO nationalityTypes (type) VALUES (:type)";
+                $stmt = Connection::conn()->prepare($query);
+                $stmt->bindParam(':type', $natType, PDO::PARAM_STR);
+                $stmt->execute();
+            } catch(PDOException $e) {
+                dbError($stmt, 'nationality-types.php?manage=add&lang='.$selectedLang);
                 die();
             }
-            else {
-                $_SESSION['error'] = language('nationalityTypes-check-error', $_SESSION['lang']);
-                header('Location: nationality-types.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            $_SESSION['success'] = language('natType-add-success', $_SESSION['lang']);
+            header('Location: nationality-types.php?manage=view&lang='.$selectedLang);
+            die();
         }
         else {
             $_SESSION['error'] = language('nationalityTypes-required', $_SESSION['lang']);
@@ -204,26 +216,39 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['nattype'])) {
             $natType = filter_var(testInput($_POST['nattype']), FILTER_SANITIZE_STRING);
-            if (in_array($natType, array('kuwaiti', 'Not kuwaiti', 'كويتى', 'غير كويتى'))) {
-                try {
-                    $query = "UPDATE nationalityTypes SET type = :type WHERE id = :id";
-                    $stmt = Connection::conn()->prepare($query);
-                    $stmt->bindParam(':type', $natType, PDO::PARAM_STR);
-                    $stmt->bindParam(':id', $_POST['id'], PDO::PARAM_INT);
-                    $stmt->execute();
-                } catch(PDOException $e) {
-                    dbError($stmt, 'nationality-types.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
-                    die();
-                }
-                $_SESSION['success'] = language('nationalityTypes-update-success', $_SESSION['lang']);
-                header('Location: nationality-types.php?manage=view&lang='.$selectedLang);
+            // if (in_array($natType, array('kuwaiti', 'Not kuwaiti', 'كويتى', 'غير كويتى'))) {
+            //     try {
+            //         $query = "UPDATE nationalityTypes SET type = :type WHERE id = :id";
+            //         $stmt = Connection::conn()->prepare($query);
+            //         $stmt->bindParam(':type', $natType, PDO::PARAM_STR);
+            //         $stmt->bindParam(':id', $_POST['id'], PDO::PARAM_INT);
+            //         $stmt->execute();
+            //     } catch(PDOException $e) {
+            //         dbError($stmt, 'nationality-types.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
+            //         die();
+            //     }
+            //     $_SESSION['success'] = language('nationalityTypes-update-success', $_SESSION['lang']);
+            //     header('Location: nationality-types.php?manage=view&lang='.$selectedLang);
+            //     die();
+            // }
+            // else {
+            //     $_SESSION['error'] = language('nationalityTypes-check-error', $_SESSION['lang']);
+            //     header('Location: nationality-types.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
+            //     die();
+            // }
+            try {
+                $query = "UPDATE nationalityTypes SET type = :type WHERE id = :id";
+                $stmt = Connection::conn()->prepare($query);
+                $stmt->bindParam(':type', $natType, PDO::PARAM_STR);
+                $stmt->bindParam(':id', $_POST['id'], PDO::PARAM_INT);
+                $stmt->execute();
+            } catch(PDOException $e) {
+                dbError($stmt, 'nationality-types.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
                 die();
             }
-            else {
-                $_SESSION['error'] = language('nationalityTypes-check-error', $_SESSION['lang']);
-                header('Location: nationality-types.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
-                die();
-            }
+            $_SESSION['success'] = language('nationalityTypes-update-success', $_SESSION['lang']);
+            header('Location: nationality-types.php?manage=view&lang='.$selectedLang);
+            die();
         }
         else {
             $_SESSION['error'] = language('nationalityTypes-required', $_SESSION['lang']);

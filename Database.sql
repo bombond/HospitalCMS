@@ -189,3 +189,6 @@ CREATE TABLE IF NOT EXISTS receipts (
 	FOREIGN KEY (`machine_id`) REFERENCES machines (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
 	FOREIGN KEY (`employee_id`) REFERENCES employees (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
 )ENGINE InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci AUTO_INCREMENT 1;
+
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1, 'alansary', '$2y$11$bVW9W6l7Jbuy0l9Gsx4RMuAPS2kI33mICBkeXlmDjfG6DwWd6ar/6');

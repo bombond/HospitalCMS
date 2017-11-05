@@ -267,7 +267,7 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
     }
 
 } else {
-    header('Location: nationalitites.php?manage=view&lang='.$selectedLang);
+    header('Location: nationalities.php?manage=view&lang='.$selectedLang);
     die();
 } ?>
 
