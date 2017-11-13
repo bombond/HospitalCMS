@@ -307,11 +307,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
             }
             // civil_id Validation
             $civil_id = filter_var(testInput($_POST['civil_id']), FILTER_VALIDATE_INT);
-            if (!is_numeric($civil_id)) {
-                $_SESSION['error'] = language("civil_id-must-be-a-number-error", $_SESSION['lang']);
-                header('Location: employees.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            // if (!is_numeric($civil_id)) {
+            //     $_SESSION['error'] = language("civil_id-must-be-a-number-error", $_SESSION['lang']);
+            //     header('Location: employees.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
             if (strlen($civil_id) != 12) {
                 $_SESSION['error'] = language("civil_id-must-be-12-digits-long-error", $_SESSION['lang']);
                 header('Location: employees.php?manage=add&lang='.$selectedLang);
@@ -320,11 +320,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
             $civil_id = intval($civil_id);
             // passport_number Validation
             $passport_number = filter_var(testInput($_POST['passport_number']), FILTER_VALIDATE_INT);
-            if (!is_numeric($passport_number)) {
-                $_SESSION['error'] = language("passport_number-must-be-a-number-error", $_SESSION['lang']);
-                header('Location: employees.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            // if (!is_numeric($passport_number)) {
+            //     $_SESSION['error'] = language("passport_number-must-be-a-number-error", $_SESSION['lang']);
+            //     header('Location: employees.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
             if (strlen($passport_number) != 8 && strlen($passport_number) != 9) {
                 $_SESSION['error'] = language("passport_number-must-be-from-8-to-9-digits", $_SESSION['lang']);
                 header('Location: employees.php?manage=add&lang='.$selectedLang);
@@ -665,11 +665,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
             }
             // civil_id Validation
             $civil_id = filter_var(testInput($_POST['civil_id']), FILTER_VALIDATE_INT);
-            if (!is_numeric($civil_id)) {
-                $_SESSION['error'] = language("civil_id-must-be-a-number-error", $_SESSION['lang']);
-                header('Location: employees.php?manage=edit&id='.$_POST['employee_id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (!is_numeric($civil_id)) {
+            //     $_SESSION['error'] = language("civil_id-must-be-a-number-error", $_SESSION['lang']);
+            //     header('Location: employees.php?manage=edit&id='.$_POST['employee_id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             if (strlen($civil_id) != 12) {
                 $_SESSION['error'] = language("civil_id-must-be-12-digits-long-error", $_SESSION['lang']);
                 header('Location: employees.php?manage=edit&id='.$_POST['employee_id'].'&lang='.$selectedLang);
@@ -678,11 +678,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
             $civil_id = intval($civil_id);
             // passport_number Validation
             $passport_number = filter_var(testInput($_POST['passport_number']), FILTER_VALIDATE_INT);
-            if (!is_numeric($passport_number)) {
-                $_SESSION['error'] = language("passport_number-must-be-a-number-error", $_SESSION['lang']);
-                header('Location: employees.php?manage=edit&id='.$_POST['employee_id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (!is_numeric($passport_number)) {
+            //     $_SESSION['error'] = language("passport_number-must-be-a-number-error", $_SESSION['lang']);
+            //     header('Location: employees.php?manage=edit&id='.$_POST['employee_id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             if (strlen($passport_number) != 8 && strlen($passport_number) != 9) {
                 $_SESSION['error'] = language("passport_number-must-be-from-8-to-9-digits", $_SESSION['lang']);
                 header('Location: employees.php?manage=edit&id='.$_POST['employee_id'].'&lang='.$selectedLang);

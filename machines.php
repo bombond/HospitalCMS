@@ -178,11 +178,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['arName']) && isset($_POST['enName']) && isset($_POST['type_id'])) {
-            if (!intval($_POST['type_id'])) {
-                $_SESSION['error'] = language('choose-type-error', $_SESSION['lang']);
-                header('Location: machines.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            // if (!intval($_POST['type_id'])) {
+            //     $_SESSION['error'] = language('choose-type-error', $_SESSION['lang']);
+            //     header('Location: machines.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
             $arName = filter_var(testInput($_POST['arName']), FILTER_SANITIZE_STRING);
             if (strlen($arName) > 100 || strlen($arName) < 1) {
                 $_SESSION['error'] = language("machines-check-error", $_SESSION['lang']);
@@ -325,11 +325,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['arName']) && isset($_POST['enName']) && isset($_POST['type_id'])) {
-            if (!intval($_POST['type_id'])) {
-                $_SESSION['error'] = language('choose-type-error', $_SESSION['lang']);
-                header('Location: machines.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (!intval($_POST['type_id'])) {
+            //     $_SESSION['error'] = language('choose-type-error', $_SESSION['lang']);
+            //     header('Location: machines.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             $arName = filter_var(testInput($_POST['arName']), FILTER_SANITIZE_STRING);
             if (strlen($arName) > 100 || strlen($arName) < 1) {
                 $_SESSION['error'] = language("machines-check-error", $_SESSION['lang']);

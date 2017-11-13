@@ -105,11 +105,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
         if (isset($_GET['typeDiscriminator']) && isset($_GET['phoneOf_id'])) {
             // Checking the validity of the id
             $id = filter_var(testInput($_GET['phoneOf_id']), FILTER_VALIDATE_INT);
-            if (!is_numeric($id)) {
-                $_SESSION['error'] = language("page-not-found", $_SESSION['lang']);
-                header('Location: dashboard.php?lang='.$selectedLang);
-                die();
-            }
+            // if (!is_numeric($id)) {
+            //     $_SESSION['error'] = language("page-not-found", $_SESSION['lang']);
+            //     header('Location: dashboard.php?lang='.$selectedLang);
+            //     die();
+            // }
             if ($_GET['typeDiscriminator'] == "Employee" || $_GET['typeDiscriminator'] == "موظف") {
                 $query = "SELECT * FROM employees WHERE id = :id";
                 $stmt = Connection::conn()->prepare($query);
@@ -179,7 +179,12 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['number'])) {
             $number = filter_var(testInput($_POST['number']), FILTER_SANITIZE_STRING);
-            if (strlen($number) != 11 || !is_numeric($number)) {
+            // if (strlen($number) != 11 || !is_numeric($number)) {
+            //     $_SESSION['error'] = language("phoneNumber-check-error", $_SESSION['lang']);
+            //     header('Location: phoneNumbers.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
+            if (strlen($number) != 11) {
                 $_SESSION['error'] = language("phoneNumber-check-error", $_SESSION['lang']);
                 header('Location: phoneNumbers.php?manage=add&lang='.$selectedLang);
                 die();
@@ -274,7 +279,12 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['number'])) {
             $number = filter_var(testInput($_POST['number']), FILTER_SANITIZE_STRING);
-            if (strlen($number) != 11 || !is_numeric($number)) {
+            // if (strlen($number) != 11 || !is_numeric($number)) {
+            //     $_SESSION['error'] = language("phoneNumber-check-error", $_SESSION['lang']);
+            //     header('Location: phoneNumbers.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
+            //     die();
+            // }
+            if (strlen($number) != 11) {
                 $_SESSION['error'] = language("phoneNumber-check-error", $_SESSION['lang']);
                 header('Location: phoneNumbers.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
                 die();

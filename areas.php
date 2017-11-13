@@ -160,11 +160,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['name']) && isset($_POST['city_id'])) {
-            if (!intval($_POST['city_id'])) {
-                $_SESSION['error'] = language('choose-city-error', $_SESSION['lang']);
-                header('Location: areas.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            // if (!intval($_POST['city_id'])) {
+            //     $_SESSION['error'] = language('choose-city-error', $_SESSION['lang']);
+            //     header('Location: areas.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
             $name = filter_var(testInput($_POST['name']), FILTER_SANITIZE_STRING);
             if (strlen($name) > 50 || strlen($name) < 1) {
                 $_SESSION['error'] = language("areas-check-error", $_SESSION['lang']);
@@ -278,11 +278,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['name']) && isset($_POST['city_id'])) {
-            if (!intval($_POST['city_id'])) {
-                $_SESSION['error'] = language('choose-city-error', $_SESSION['lang']);
-                header('Location: areas.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (!intval($_POST['city_id'])) {
+            //     $_SESSION['error'] = language('choose-city-error', $_SESSION['lang']);
+            //     header('Location: areas.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             $name = filter_var(testInput($_POST['name']), FILTER_SANITIZE_STRING);
             if (strlen($name) > 50 || strlen($name) < 1) {
                 $_SESSION['error'] = language("areas-check-error", $_SESSION['lang']);
