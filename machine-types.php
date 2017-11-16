@@ -113,11 +113,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['type'])) {
             $type = filter_var(testInput($_POST['type']), FILTER_SANITIZE_STRING);
-            if (strlen($type) >100 || strlen($type) < 1) {
-                $_SESSION['error'] = language('machine-type-check-error', $_SESSION['lang']);
-                header('Location: machine-types.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($type) >100 || strlen($type) < 1) {
+            //     $_SESSION['error'] = language('machine-type-check-error', $_SESSION['lang']);
+            //     header('Location: machine-types.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
             try {
                 $query = "INSERT INTO machineTypes (type) VALUES (:type)";
                 $stmt = Connection::conn()->prepare($query);
@@ -202,11 +202,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['type'])) {
             $type = filter_var(testInput($_POST['type']), FILTER_SANITIZE_STRING);
-            if (strlen($type) >100 || strlen($type) < 1) {
-                $_SESSION['error'] = language('machine-type-check-error', $_SESSION['lang']);
-                header('Location: machine-types.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($type) >100 || strlen($type) < 1) {
+            //     $_SESSION['error'] = language('machine-type-check-error', $_SESSION['lang']);
+            //     header('Location: machine-types.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             try {
                 $query = "UPDATE machineTypes SET type = :type WHERE id = :id";
                 $stmt = Connection::conn()->prepare($query);

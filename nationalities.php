@@ -113,11 +113,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['nat'])) {
             $nat = filter_var(testInput($_POST['nat']), FILTER_SANITIZE_STRING);
-            if (strlen($nat) > 50 || strlen($nat) < 1) {
-                $_SESSION['error'] = language('nat-check-error', $_SESSION['lang']);
-                header('Location: nationalities.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($nat) > 50 || strlen($nat) < 1) {
+            //     $_SESSION['error'] = language('nat-check-error', $_SESSION['lang']);
+            //     header('Location: nationalities.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
             try {
                 $query = "INSERT INTO nationalities (nationality) VALUES (:nationality)";
                 $stmt = Connection::conn()->prepare($query);
@@ -202,11 +202,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['nat'])) {
             $nat = filter_var(testInput($_POST['nat']), FILTER_SANITIZE_STRING);
-            if (strlen($nat) > 50 || strlen($nat) < 1) {
-                $_SESSION['error'] = language('nat-check-error', $_SESSION['lang']);
-                header('Location: nationalities.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($nat) > 50 || strlen($nat) < 1) {
+            //     $_SESSION['error'] = language('nat-check-error', $_SESSION['lang']);
+            //     header('Location: nationalities.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             try {
                 $query = "UPDATE nationalities SET nationality = :nationality WHERE id = :id";
                 $stmt = Connection::conn()->prepare($query);

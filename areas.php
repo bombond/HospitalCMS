@@ -166,11 +166,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
             //     die();
             // }
             $name = filter_var(testInput($_POST['name']), FILTER_SANITIZE_STRING);
-            if (strlen($name) > 50 || strlen($name) < 1) {
-                $_SESSION['error'] = language("areas-check-error", $_SESSION['lang']);
-                header('Location: areas.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($name) > 50 || strlen($name) < 1) {
+            //     $_SESSION['error'] = language("areas-check-error", $_SESSION['lang']);
+            //     header('Location: areas.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
             try {
                 $query = "INSERT INTO areas (name, city_id) VALUES (:name, :city_id)";
                 $stmt = Connection::conn()->prepare($query);
@@ -284,11 +284,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
             //     die();
             // }
             $name = filter_var(testInput($_POST['name']), FILTER_SANITIZE_STRING);
-            if (strlen($name) > 50 || strlen($name) < 1) {
-                $_SESSION['error'] = language("areas-check-error", $_SESSION['lang']);
-                header('Location: areas.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($name) > 50 || strlen($name) < 1) {
+            //     $_SESSION['error'] = language("areas-check-error", $_SESSION['lang']);
+            //     header('Location: areas.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             $city_id = intval($_POST['city_id']);
             try {
                 $query = "UPDATE areas SET name = :name, city_id = :city_id WHERE id = :id";

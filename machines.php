@@ -184,23 +184,23 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
             //     die();
             // }
             $arName = filter_var(testInput($_POST['arName']), FILTER_SANITIZE_STRING);
-            if (strlen($arName) > 100 || strlen($arName) < 1) {
-                $_SESSION['error'] = language("machines-check-error", $_SESSION['lang']);
-                header('Location: machines.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($arName) > 100 || strlen($arName) < 1) {
+            //     $_SESSION['error'] = language("machines-check-error", $_SESSION['lang']);
+            //     header('Location: machines.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
             $enName = filter_var(testInput($_POST['enName']), FILTER_SANITIZE_STRING);
-            if (strlen($enName) > 100 || strlen($enName) < 1) {
-                $_SESSION['error'] = language("machines-check-error", $_SESSION['lang']);
-                header('Location: machines.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($enName) > 100 || strlen($enName) < 1) {
+            //     $_SESSION['error'] = language("machines-check-error", $_SESSION['lang']);
+            //     header('Location: machines.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
             $description = (isset($_POST['description'])) ? filter_var(testInput($_POST['description']), FILTER_SANITIZE_STRING) : '';
-            if (strlen($description) > 255) {
-                $_SESSION['error'] = language("machines-description-check-error", $_SESSION['lang']);
-                header('Location: machines.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($description) > 255) {
+            //     $_SESSION['error'] = language("machines-description-check-error", $_SESSION['lang']);
+            //     header('Location: machines.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
             $type_id = intval($_POST['type_id']);
             try {
                 $query = "INSERT INTO machines (arName, enName, description, type_id) VALUES (:arName, :enName, :description, :type_id)";
@@ -331,23 +331,23 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
             //     die();
             // }
             $arName = filter_var(testInput($_POST['arName']), FILTER_SANITIZE_STRING);
-            if (strlen($arName) > 100 || strlen($arName) < 1) {
-                $_SESSION['error'] = language("machines-check-error", $_SESSION['lang']);
-                header('Location: machines.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($arName) > 100 || strlen($arName) < 1) {
+            //     $_SESSION['error'] = language("machines-check-error", $_SESSION['lang']);
+            //     header('Location: machines.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             $enName = filter_var(testInput($_POST['enName']), FILTER_SANITIZE_STRING);
-            if (strlen($enName) > 100 || strlen($enName) < 1) {
-                $_SESSION['error'] = language("machines-check-error", $_SESSION['lang']);
-                header('Location: machines.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($enName) > 100 || strlen($enName) < 1) {
+            //     $_SESSION['error'] = language("machines-check-error", $_SESSION['lang']);
+            //     header('Location: machines.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             $description = (isset($_POST['description'])) ? filter_var(testInput($_POST['description']), FILTER_SANITIZE_STRING) : '';
-            if (strlen($description) > 255) {
-                $_SESSION['error'] = language("machines-description-check-error", $_SESSION['lang']);
-                header('Location: machines.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($description) > 255) {
+            //     $_SESSION['error'] = language("machines-description-check-error", $_SESSION['lang']);
+            //     header('Location: machines.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             $type_id = intval($_POST['type_id']);
             try {
                 $query = "UPDATE machines SET arName = :arName, enName = :enName, description = :description, type_id = :type_id WHERE id = :id";

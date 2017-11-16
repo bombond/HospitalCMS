@@ -112,11 +112,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['role'])) {
             $role = filter_var(testInput($_POST['role']), FILTER_SANITIZE_STRING);
-            if (strlen($role) > 100 || strlen($role) < 1) {
-                $_SESSION['error'] = language('positionRoles-check-error', $_SESSION['lang']);
-                header('Location: position-roles.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($role) > 100 || strlen($role) < 1) {
+            //     $_SESSION['error'] = language('positionRoles-check-error', $_SESSION['lang']);
+            //     header('Location: position-roles.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
             try {
                 $query = "INSERT INTO positionRoles (role) VALUES (:role)";
                 $stmt = Connection::conn()->prepare($query);
@@ -201,11 +201,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['role'])) {
             $role = filter_var(testInput($_POST['role']), FILTER_SANITIZE_STRING);
-            if (strlen($role) > 100 || strlen($role) < 1) {
-                $_SESSION['error'] = language('positionRoles-check-error', $_SESSION['lang']);
-                header('Location: position-roles.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($role) > 100 || strlen($role) < 1) {
+            //     $_SESSION['error'] = language('positionRoles-check-error', $_SESSION['lang']);
+            //     header('Location: position-roles.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             try {
                 $query = "UPDATE positionRoles SET role = :role WHERE id = :id";
                 $stmt = Connection::conn()->prepare($query);

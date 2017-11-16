@@ -112,11 +112,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['name'])) {
             $name = filter_var(testInput($_POST['name']), FILTER_SANITIZE_STRING);
-            if (strlen($name) > 50 || strlen($name) < 1) {
-                $_SESSION['error'] = language("cities-check-error", $_SESSION['lang']);
-                header('Location: cities.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($name) > 50 || strlen($name) < 1) {
+            //     $_SESSION['error'] = language("cities-check-error", $_SESSION['lang']);
+            //     header('Location: cities.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
             try {
                 $query = "INSERT INTO cities (name) VALUES (:name)";
                 $stmt = Connection::conn()->prepare($query);
@@ -201,11 +201,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['name'])) {
             $name = filter_var(testInput($_POST['name']), FILTER_SANITIZE_STRING);
-            if (strlen($name) > 50 || strlen($name) < 1) {
-                $_SESSION['error'] = language("cities-check-error", $_SESSION['lang']);
-                header('Location: cities.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($name) > 50 || strlen($name) < 1) {
+            //     $_SESSION['error'] = language("cities-check-error", $_SESSION['lang']);
+            //     header('Location: cities.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             try {
                 $query = "UPDATE cities SET name = :name WHERE id = :id";
                 $stmt = Connection::conn()->prepare($query);

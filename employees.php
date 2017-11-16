@@ -286,25 +286,25 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
             && isset($_POST['civil_id']) && isset($_POST['dob']) && isset($_POST['hireDate'])) {
             // firstName Validation
             $firstName = filter_var(testInput($_POST['firstName']), FILTER_SANITIZE_STRING);
-            if (strlen($firstName) > 30 || strlen($firstName) < 1) {
-                $_SESSION['error'] = language("employees-firstName-error", $_SESSION['lang']);
-                header('Location: employees.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($firstName) > 30 || strlen($firstName) < 1) {
+            //     $_SESSION['error'] = language("employees-firstName-error", $_SESSION['lang']);
+            //     header('Location: employees.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
             // middleName Validation
             $middleName = filter_var(testInput($_POST['middleName']), FILTER_SANITIZE_STRING);
-            if (strlen($middleName) > 30 || strlen($middleName) < 1) {
-                $_SESSION['error'] = language("employees-middleName-error", $_SESSION['lang']);
-                header('Location: employees.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($middleName) > 30 || strlen($middleName) < 1) {
+            //     $_SESSION['error'] = language("employees-middleName-error", $_SESSION['lang']);
+            //     header('Location: employees.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
             // lastName Validation
             $lastName = filter_var(testInput($_POST['lastName']), FILTER_SANITIZE_STRING);
-            if (strlen($lastName) > 30 || strlen($lastName) < 1) {
-                $_SESSION['error'] = language("employees-lastName-error", $_SESSION['lang']);
-                header('Location: employees.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($lastName) > 30 || strlen($lastName) < 1) {
+            //     $_SESSION['error'] = language("employees-lastName-error", $_SESSION['lang']);
+            //     header('Location: employees.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
             // civil_id Validation
             $civil_id = filter_var(testInput($_POST['civil_id']), FILTER_VALIDATE_INT);
             // if (!is_numeric($civil_id)) {
@@ -325,11 +325,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
             //     header('Location: employees.php?manage=add&lang='.$selectedLang);
             //     die();
             // }
-            if (strlen($passport_number) != 8 && strlen($passport_number) != 9) {
-                $_SESSION['error'] = language("passport_number-must-be-from-8-to-9-digits", $_SESSION['lang']);
-                header('Location: employees.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($passport_number) != 8 && strlen($passport_number) != 9) {
+            //     $_SESSION['error'] = language("passport_number-must-be-from-8-to-9-digits", $_SESSION['lang']);
+            //     header('Location: employees.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
             $passport_number = intval($passport_number);
             // image Validation
             $imageName = $_FILES['image']['name'];
@@ -644,25 +644,25 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
         && isset($_POST['civil_id']) && isset($_POST['dob']) && isset($_POST['hireDate'])) {
             // firstName Validation
             $firstName = filter_var(testInput($_POST['firstName']), FILTER_SANITIZE_STRING);
-            if (strlen($firstName) > 30 || strlen($firstName) < 1) {
-                $_SESSION['error'] = language("employees-firstName-error", $_SESSION['lang']);
-                header('Location: employees.php?manage=edit&id='.$_POST['employee_id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($firstName) > 30 || strlen($firstName) < 1) {
+            //     $_SESSION['error'] = language("employees-firstName-error", $_SESSION['lang']);
+            //     header('Location: employees.php?manage=edit&id='.$_POST['employee_id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             // middleName Validation
             $middleName = filter_var(testInput($_POST['middleName']), FILTER_SANITIZE_STRING);
-            if (strlen($middleName) > 30 || strlen($middleName) < 1) {
-                $_SESSION['error'] = language("employees-middleName-error", $_SESSION['lang']);
-                header('Location: employees.php?manage=edit&id='.$_POST['employee_id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($middleName) > 30 || strlen($middleName) < 1) {
+            //     $_SESSION['error'] = language("employees-middleName-error", $_SESSION['lang']);
+            //     header('Location: employees.php?manage=edit&id='.$_POST['employee_id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             // lastName Validation
             $lastName = filter_var(testInput($_POST['lastName']), FILTER_SANITIZE_STRING);
-            if (strlen($lastName) > 30 || strlen($lastName) < 1) {
-                $_SESSION['error'] = language("employees-lastName-error", $_SESSION['lang']);
-                header('Location: employees.php?manage=edit&id='.$_POST['employee_id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($lastName) > 30 || strlen($lastName) < 1) {
+            //     $_SESSION['error'] = language("employees-lastName-error", $_SESSION['lang']);
+            //     header('Location: employees.php?manage=edit&id='.$_POST['employee_id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             // civil_id Validation
             $civil_id = filter_var(testInput($_POST['civil_id']), FILTER_VALIDATE_INT);
             // if (!is_numeric($civil_id)) {
@@ -670,11 +670,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
             //     header('Location: employees.php?manage=edit&id='.$_POST['employee_id'].'&lang='.$selectedLang);
             //     die();
             // }
-            if (strlen($civil_id) != 12) {
-                $_SESSION['error'] = language("civil_id-must-be-12-digits-long-error", $_SESSION['lang']);
-                header('Location: employees.php?manage=edit&id='.$_POST['employee_id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($civil_id) != 12) {
+            //     $_SESSION['error'] = language("civil_id-must-be-12-digits-long-error", $_SESSION['lang']);
+            //     header('Location: employees.php?manage=edit&id='.$_POST['employee_id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             $civil_id = intval($civil_id);
             // passport_number Validation
             $passport_number = filter_var(testInput($_POST['passport_number']), FILTER_VALIDATE_INT);
@@ -683,11 +683,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
             //     header('Location: employees.php?manage=edit&id='.$_POST['employee_id'].'&lang='.$selectedLang);
             //     die();
             // }
-            if (strlen($passport_number) != 8 && strlen($passport_number) != 9) {
-                $_SESSION['error'] = language("passport_number-must-be-from-8-to-9-digits", $_SESSION['lang']);
-                header('Location: employees.php?manage=edit&id='.$_POST['employee_id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($passport_number) != 8 && strlen($passport_number) != 9) {
+            //     $_SESSION['error'] = language("passport_number-must-be-from-8-to-9-digits", $_SESSION['lang']);
+            //     header('Location: employees.php?manage=edit&id='.$_POST['employee_id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             $passport_number = intval($passport_number);
             // image Validation
             $imageName = $_FILES['image']['name'];

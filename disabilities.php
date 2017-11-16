@@ -237,11 +237,11 @@ if (!$row['count']) {
         if (isset($_POST['amount']) && isset($_POST['date'])) {
             // description Validation
             $description = filter_var(testInput($_POST['description']), FILTER_SANITIZE_STRING);
-            if (strlen($description) > 255) {
-                $_SESSION['error'] = language('disabilities-desc-length-error', $_SESSION['lang']);
-                header('Location: disabilities.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($description) > 255) {
+            //     $_SESSION['error'] = language('disabilities-desc-length-error', $_SESSION['lang']);
+            //     header('Location: disabilities.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
             // amount Validation
             $amount = filter_var(testInput($_POST['amount']), FILTER_VALIDATE_FLOAT);
             // date Validation
@@ -434,11 +434,11 @@ if (!$row['count']) {
         if (isset($_POST['amount']) && isset($_POST['date'])) {
             // description Validation
             $description = filter_var(testInput($_POST['description']), FILTER_SANITIZE_STRING);
-            if (strlen($description) > 255) {
-                $_SESSION['error'] = language('disabilities-desc-length-error', $_SESSION['lang']);
-                header('Location: disabilities.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($description) > 255) {
+            //     $_SESSION['error'] = language('disabilities-desc-length-error', $_SESSION['lang']);
+            //     header('Location: disabilities.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             // amount Validation
             $amount = filter_var(testInput($_POST['amount']), FILTER_VALIDATE_FLOAT);
             // date Validation

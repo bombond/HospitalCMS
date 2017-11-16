@@ -112,11 +112,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['department'])) {
             $department = filter_var(testInput($_POST['department']), FILTER_SANITIZE_STRING);
-            if (strlen($department) > 100 || strlen($department) < 1) {
-                $_SESSION['error'] = language('departments-check-error', $_SESSION['lang']);
-                header('Location: departments.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($department) > 100 || strlen($department) < 1) {
+            //     $_SESSION['error'] = language('departments-check-error', $_SESSION['lang']);
+            //     header('Location: departments.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
             try {
                 $query = "INSERT INTO departments (name) VALUES (:name)";
                 $stmt = Connection::conn()->prepare($query);
@@ -201,11 +201,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['department'])) {
             $department = filter_var(testInput($_POST['department']), FILTER_SANITIZE_STRING);
-            if (strlen($department) > 100 || strlen($department) < 1) {
-                $_SESSION['error'] = language('departments-check-error', $_SESSION['lang']);
-                header('Location: departments.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($department) > 100 || strlen($department) < 1) {
+            //     $_SESSION['error'] = language('departments-check-error', $_SESSION['lang']);
+            //     header('Location: departments.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             try {
                 $query = "UPDATE departments SET name = :name WHERE id = :id";
                 $stmt = Connection::conn()->prepare($query);

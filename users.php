@@ -119,16 +119,16 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
         if (isset($_POST['username']) && isset($_POST['password'])) {
             $username = filter_var(testInput($_POST['username']), FILTER_SANITIZE_STRING);
             $password = filter_var(testInput($_POST['password']), FILTER_SANITIZE_STRING);
-            if (strlen($username) > 50 || strlen($username) < 4) {
-                $_SESSION['error'] = language('username-check-error', $_SESSION['lang']);
-                header('Location: users.php?manage=add&lang='.$selectedLang);
-                die();
-            }
-            if (strlen($password) > 100 || strlen($password) < 6) {
-                $_SESSION['error'] = language('password-check-error', $_SESSION['lang']);
-                header('Location: users.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($username) > 50 || strlen($username) < 4) {
+            //     $_SESSION['error'] = language('username-check-error', $_SESSION['lang']);
+            //     header('Location: users.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
+            // if (strlen($password) > 100 || strlen($password) < 6) {
+            //     $_SESSION['error'] = language('password-check-error', $_SESSION['lang']);
+            //     header('Location: users.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
             try {
                 $query = "INSERT INTO users (username, password) VALUES (:username, :password)";
                 $stmt = Connection::conn()->prepare($query);
@@ -220,16 +220,16 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
         if (isset($_POST['username']) && isset($_POST['password'])) {
             $username = filter_var(testInput($_POST['username']), FILTER_SANITIZE_STRING);
             $password = filter_var(testInput($_POST['password']), FILTER_SANITIZE_STRING);
-            if (strlen($username) > 50 || strlen($username) < 4) {
-                $_SESSION['error'] = language('username-check-error', $_SESSION['lang']);
-                header('Location: users.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
-                die();
-            }
-            if (strlen($password) > 100 || strlen($password) < 6) {
-                $_SESSION['error'] = language('password-check-error', $_SESSION['lang']);
-                header('Location: users.php?manage=add&id='.$_POST['id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($username) > 50 || strlen($username) < 4) {
+            //     $_SESSION['error'] = language('username-check-error', $_SESSION['lang']);
+            //     header('Location: users.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
+            //     die();
+            // }
+            // if (strlen($password) > 100 || strlen($password) < 6) {
+            //     $_SESSION['error'] = language('password-check-error', $_SESSION['lang']);
+            //     header('Location: users.php?manage=add&id='.$_POST['id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             try {
                 $query = "UPDATE users SET username = :username, password = :password WHERE id = :id";
                 $stmt = Connection::conn()->prepare($query);

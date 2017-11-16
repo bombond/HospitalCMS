@@ -184,11 +184,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
             //     header('Location: phoneNumbers.php?manage=add&lang='.$selectedLang);
             //     die();
             // }
-            if (strlen($number) != 11) {
-                $_SESSION['error'] = language("phoneNumber-check-error", $_SESSION['lang']);
-                header('Location: phoneNumbers.php?manage=add&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($number) != 11) {
+            //     $_SESSION['error'] = language("phoneNumber-check-error", $_SESSION['lang']);
+            //     header('Location: phoneNumbers.php?manage=add&lang='.$selectedLang);
+            //     die();
+            // }
             $typeDiscriminator = $_POST['typeDiscriminator'];
             $phoneOf_id = $_POST['phoneOf_id'];
             try {
@@ -284,11 +284,11 @@ if (isset($_GET['manage']) && $_GET['manage'] == 'view') {
             //     header('Location: phoneNumbers.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
             //     die();
             // }
-            if (strlen($number) != 11) {
-                $_SESSION['error'] = language("phoneNumber-check-error", $_SESSION['lang']);
-                header('Location: phoneNumbers.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
-                die();
-            }
+            // if (strlen($number) != 11) {
+            //     $_SESSION['error'] = language("phoneNumber-check-error", $_SESSION['lang']);
+            //     header('Location: phoneNumbers.php?manage=edit&id='.$_POST['id'].'&lang='.$selectedLang);
+            //     die();
+            // }
             try {
                 $query = "UPDATE phoneNumbers SET number = :number WHERE id = :id";
                 $stmt = Connection::conn()->prepare($query);
