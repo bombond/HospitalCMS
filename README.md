@@ -19,7 +19,7 @@
   - Change the connection credentials in Connection.php located in helpers folder
   - Change the main language in setLang.php located in helpers folder as follows:
     - $_SESSION['lang'] = 1; $selectedLang = "ar"; if the main language is Arabic
-    - $_SESSION['lang'] = 2; $selectedLang = "en"; if the main language is English
+    - $_SESSION['lang'] = 0; $selectedLang = "en"; if the main language is English
   - Modify the translation if required from helpers/language.php
   - Enjoy!
 ## Screenshots:

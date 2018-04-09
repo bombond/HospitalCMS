@@ -11,6 +11,6 @@ if (isset($_GET['lang'])) {
 	}
 }
 else {
-	$_SESSION['lang'] = 1;
-	$selectedLang = "ar";
+	$_SESSION['lang'] = 0;
+	$selectedLang = "en";
 }

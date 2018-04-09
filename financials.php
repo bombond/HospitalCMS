@@ -124,7 +124,7 @@ $stmt->execute();
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 if (!$row['count']) {
     $_SESSION['error'] = language("financials-card-no-articles-error", $_SESSION['lang']);
-    haeder('Location: financials.php?manage=add&lang='.$selectedLang);
+    header('Location: articles.php?manage=view&lang='.$selectedLang);
     die();
 }
 ?>
